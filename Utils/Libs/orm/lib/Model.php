@@ -849,8 +849,8 @@ class Model
 		{
 			$column = $table->get_column_by_inflected_name($pk);
 
-			if ($column->auto_increment || $use_sequence)
-				$this->attributes[$pk] = static::connection()->insert_id($table->sequence);
+			if (@$column->auto_increment || $use_sequence)
+				$this->attributes[$pk] = @static::connection()->insert_id($table->sequence);
 		}
 
 		$this->__new_record = false;
@@ -1140,7 +1140,7 @@ class Model
 	 */
 	public function set_timestamps()
 	{
-		@$now = date('Y-m-d H:i:s');
+		$now = @date('Y-m-d H:i:s');
 
 		if (isset($this->updated_at))
 			$this->updated_at = $now;

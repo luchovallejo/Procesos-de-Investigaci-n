@@ -22,3 +22,13 @@ catch(Exception $error){
         echo "Datos ya existentes";
     }
 }
+
+$grupoinvestigaciones = Investigador::all();
+foreach ($u as $grupoinvestigaciones){
+?>
+IDENTIFICACION: <?= $u-> id_Lider ?><br>
+NOMBRE DEL PROYECTO: <?= $u-> nombre_proyecto ?><br>
+ID DE INVESTIGADOR/A: <?= $u-> investigador_id ?><br>
+<?php
+}
+?>
