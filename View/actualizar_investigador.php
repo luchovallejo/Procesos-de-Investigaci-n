@@ -11,12 +11,15 @@ try{
     echo "<b>NOMBRE:</b> $u->nombre<br>";
     echo "<b>APELLIDO:</b> $u->apellido<br>";
     echo "<b>TELEFONO:</b> $u->telefono<br>";
-
+  
+    echo "<br>";
+    
     echo "SE CAMBIA ID, NOMBRE, APELLIDO...<br>";
 
-    $u->id_Investigador = "21383";
-    $u->nombre = "Andres";
-    $u->apellido = "Escobar";
+    $u->id_Investigador = "737828263";
+    $u->nombre = "Camilia";
+    $u->apellido = "Cruz";
+    $u->telefono = "321456732";
     $u->save();
 
     echo "<br>";
