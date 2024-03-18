@@ -1,17 +1,17 @@
 <?php
 require_once $_SERVER["DOCUMENT_ROOT"]."procesoeducativo/Models/Entities/Investigador.php";
 
-$u = new GrupoInvestigacion();
-$u->id_Lider = "94939384";
-$u->nombre_proyecto = "proyecot 1";
-$u->investigador_id = "45643";
+$g = new GrupoInvestigacion();
+$g->id_Lider = 8384949;
+$g->nombre_proyecto = "proyecto 2";
+$g->investigador_id = 678863637;
 
 //$u->save();
 //$total = @GrupoInvestigacion::count();
 //echo "total: $total GrupoInvestigacion";
 
 try{
-    $u->save();
+    $g->save();
     $total = @GrupoInvestigacion::count();
     echo "Grupo de investigaciones ingresados";
     echo "Total: $total";
@@ -23,12 +23,14 @@ catch(Exception $error){
     }
 }
 
-$grupoinvestigaciones = Investigador::all();
-foreach ($u as $grupoinvestigaciones){
+$grupoinvestigaciones = GrupoInvestigacion::all();
+foreach ($grupoinvestigaciones as $i => $u){
 ?>
-IDENTIFICACION: <?= $u-> id_Lider ?><br>
-NOMBRE DEL PROYECTO: <?= $u-> nombre_proyecto ?><br>
-ID DE INVESTIGADOR/A: <?= $u-> investigador_id ?><br>
+# <?= $i ?><br>
+IDENTIFICACION: <?= $g-> id_Lider ?><br>
+NOMBRE DEL PROYECTO: <?= $g-> nombre_proyecto ?><br>
+ID DE INVESTIGADOR/A: <?= $g-> investigador_id ?><br>
+<hr>
 <?php
 }
 ?>
