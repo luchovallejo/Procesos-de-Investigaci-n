@@ -28,4 +28,29 @@ function habilitarBotone(){
         campoApellido.setAttribute("readonly", true);
         campoTelefono.setAttribute("readonly", true);
     }
+
+    function confirmarOperacion() {
+
+        const botonEditar = document.getElementById("editar");
+        const botonEliminar = document.getElementById("eliminar");
+
+        botonEditar.addEventListener("click", (event) => {
+            mensaje = "¿Deseas modificar los datos de este Investigador?";
+            return confirmar(mensaje, event);
+        });
+
+
+        botonEliminar.addEventListener("click", (event) => {
+            mensaje = "¿Deseas eliminar los datos de este Investigador?";
+            return confirmar(mensaje, event);
+        });
+    }
+
+    function confirmar(mensaje, event){
+        const respuesta = confirm(mensaje);
+
+        if(!respuesta){
+            evento.preventDefault();
+        }
+    }
 }
