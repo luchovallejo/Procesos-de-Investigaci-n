@@ -1,10 +1,7 @@
 <?php
-
 // Obtenemos el mensaje enviado por el controlador
 $msj = @$_REQUEST["msj"];
-
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -50,5 +47,5 @@ $msj = @$_REQUEST["msj"];
         <span style="color: red;"><?= ($msj != NULL || isset($msj)) ? $msj : ""?></span>
     </center>
 </body>
-
+</html>
 
