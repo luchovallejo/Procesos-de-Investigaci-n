@@ -13,6 +13,9 @@ class InvestigadorController{
             case "Buscar";
             InvestigadorController::buscar();
             break;
+            case "Editar";
+            InvestigadorController::editar();
+            break;
         default:
         header("Location: ../View/error.php?msj=Accion no permitida");
         exit;
@@ -71,6 +74,47 @@ class InvestigadorController{
             }
             else{
                 $msj = "Ocurrio un error al guardar investigador";
+            }
+            $_SESSION["investigador.find"] = NULL;
+            header("Location: ../View/buscar.php?msj=$msj");
+            exit;
+        }
+    }
+
+    public static function editar(){
+
+        $id_Investigador = @$_REQUEST["ID"];
+        $u = $_SESSION["investigador.find"];
+        $u = unserialize($u);
+
+        if($u->id_investigador != $id_Investigador){
+            $msj = "El ID no corresponde al investigador consultado";
+            header("Location: ../View/buscar.php");
+            exit;
+        }
+
+        $nombre = @$_REQUEST["nombre"];
+        $apellido = @$_REQUEST["apellido"];
+        $telefono = @$_REQUEST["tlf"];
+
+        $nombre = $nombre;
+        $apellido = $apellido;
+        $telefono = $telefono;
+
+        try{
+            $u->save();
+            $_SESSION["investigador.find"] = serialize($u);
+            $msj = "Dato investigador editado";
+            header("Location: ../View/buscar.php");
+            exit;
+        }
+
+        catch(Exception $error){
+            if(strstr($error->getMessage(), $id_Investigador)){
+                $msj = "El Investigador con ID: $id_Investigador no existe";
+            }
+            else{
+                $msj = "Ocurrio un error al editar informacion del investigador";
             }
             $_SESSION["investigador.find"] = NULL;
             header("Location: ../View/buscar.php?msj=$msj");

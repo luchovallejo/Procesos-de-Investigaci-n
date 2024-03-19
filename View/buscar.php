@@ -15,6 +15,7 @@ $u = unserialize($u);
 <head>
     <meta charset="UTF-8">
     <title>EJEMPLO CRUD PHP ORM</title>
+    <script src="../View/js/validaciones.js"> </script>
 </head>
 
 <body>
@@ -46,12 +47,18 @@ $u = unserialize($u);
                 <tr>
                     <td colspan="2" style="text-align: right">
                     <input type="reset" id="limpiar" value="Limpiar">&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="submit" id="accion" name="accion" value="Guardar">
+                  <!--  <input type="submit" id="accion" name="accion" value="Guardar"> -->
+                    <input type="submit" id="buscar" name="accion" value="Buscar">&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="submit" id="editar" name="accion" value="Editar">&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="submit" id="eliminar" name="accion" value="Eliminar">&nbsp;&nbsp;&nbsp;&nbsp;
                     </td>
                 </tr>
             </table>
         </from>
         <span style="color: red;"><?= ($msj != NULL || isset($msj)) ? $msj : ""?></span>
     </center>
+    <script>
+        habilitarBotone();
+    </script>
 </body>
 </html>
