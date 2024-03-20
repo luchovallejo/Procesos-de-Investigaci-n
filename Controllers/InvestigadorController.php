@@ -19,6 +19,9 @@ class InvestigadorController{
             case "Eliminar";
             InvestigadorController::eliminar();
             break;
+            case "Todo";
+            InvestigadorController::listar_todo();
+            break;
         default:
         header("Location: ../View/error.php?msj=Accion no permitida");
         exit;
@@ -157,6 +160,25 @@ class InvestigadorController{
             header("Location: ../View/buscar.php?msj=$msj");
             exit;
         }  
+    }
+
+    public static function listar_todo(){
+        try {
+            $investigadores = Investigador::all();
+            if($investigadores == null){
+                $_SESSION["investigadores.all"];
+                $msj = "Total investigadores: 0";
+            }else{
+                $total = count($investigadores);
+                $investigadores = serialize($investigadores);
+                $_SESSION["investigadores.all"] = $investigadores;
+            }
+            $msj = "Total Investigadores: $total";
+            header("Location: ../View/listar_todo.php?msj=$msj");
+        }catch(Exception $error){
+            $_SESSION["investigadores.all"] = null;
+            header("Location ../View/listar_todo.php?msj=Total investigadores: 0");
+        }
     }
 }
 
