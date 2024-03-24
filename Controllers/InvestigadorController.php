@@ -22,6 +22,9 @@ class InvestigadorController{
             case "Todo";
             InvestigadorController::listar_todo();
             break;
+            case "Login";
+            InvestigadorController::login();
+            break;
         default:
         header("Location: ../View/error.php?msj=Accion no permitida");
         exit;
@@ -31,7 +34,7 @@ class InvestigadorController{
     // ----------------------
 
     public static function guardar(){
-        $id_Investigador = @$_REQUEST["id"];
+        $id = @$_REQUEST["id"];
         $nombre = @$_REQUEST["nombre"];
         $apellido = @$_REQUEST["apellido"];
         $telefono = @$_REQUEST["tlf"];
@@ -39,7 +42,7 @@ class InvestigadorController{
 
         $u = new Investigador();
 
-        $id_Investigador = $id_Investigador;
+        $id = $id;
         $nombre = $nombre;
         $apellido = $apellido;
         $telefono = $telefono;
@@ -53,7 +56,7 @@ class InvestigadorController{
         }
         catch(Exception $error){
             if(strstr($error->getMessage(), "Duplicate")){
-                $msj = "El Investigador con ID: $id_Investigador ya existe";
+                $msj = "El Investigador con ID: $id ya existe";
             }
 
             else{
@@ -65,18 +68,18 @@ class InvestigadorController{
     }
 
     public static function buscar(){
-        $id_Investigador = @$_REQUEST["ID"];
+        $id = @$_REQUEST["ID"];
 
         try{
-            $u = Investigador::find($id_Investigador);
+            $u = Investigador::find($id);
 
             $_SESSION["investigador.find"] = serialize($u);
             $msj = "Investigador encontrado";
             header("Location: ../View/buscar.php?msj=$msj");
         }
         catch(Exception $error){
-            if(strstr($error->getMessage(), $id_Investigador)){
-                $msj = "El Investigador con ID: $id_Investigador no existe";
+            if(strstr($error->getMessage(), $id)){
+                $msj = "El Investigador con ID: $id no existe";
             }
             else{
                 $msj = "Ocurrio un error al guardar investigador";
@@ -89,11 +92,11 @@ class InvestigadorController{
 
     public static function editar(){
 
-        $id_Investigador = @$_REQUEST["ID"];
+        $id = @$_REQUEST["ID"];
         $u = $_SESSION["investigador.find"];
         $u = unserialize($u);
 
-        if($u->id_investigador != $id_Investigador){
+        if($u->id != $id){
             $msj = "El ID no corresponde al investigador consultado";
             header("Location: ../View/buscar.php");
             exit;
@@ -116,8 +119,8 @@ class InvestigadorController{
         }
 
         catch(Exception $error){
-            if(strstr($error->getMessage(), $id_Investigador)){
-                $msj = "El Investigador con ID: $id_Investigador no existe";
+            if(strstr($error->getMessage(), $id)){
+                $msj = "El Investigador con ID: $id no existe";
             }
             else{
                 $msj = "Ocurrio un error al editar informacion del investigador";
@@ -130,11 +133,11 @@ class InvestigadorController{
 
     public static function eliminar(){
 
-        $id_Investigador = @$_REQUEST["ID"];
+        $id = @$_REQUEST["ID"];
         $u = $_SESSION["investigador.find"];
         $u = unserialize($u);
 
-        if($u->id_investigador != $id_Investigador){
+        if($u->id != $id){
             $msj = "El ID no corresponde al investigador consultado";
             header("Location: ../View/buscar.php");
             exit;
@@ -150,8 +153,8 @@ class InvestigadorController{
         }
 
         catch(Exception $error){
-            if(strstr($error->getMessage(), $id_Investigador)){
-                $msj = "El Investigador con ID: $id_Investigador no existe";
+            if(strstr($error->getMessage(), $id)){
+                $msj = "El Investigador con ID: $id no existe";
             }
             else{
                 $msj = "Ocurrio un error al eliminar informacion del investigador";
@@ -178,6 +181,35 @@ class InvestigadorController{
         }catch(Exception $error){
             $_SESSION["investigadores.all"] = null;
             header("Location ../View/listar_todo.php?msj=Total investigadores: 0");
+        }
+    }
+
+    public static function login(){
+        $id = @$_REQUEST["ID"];
+        $nombre = @$_REQUEST["nombre"];
+
+        try{
+            $u = Investigador::find($id);
+            if($u->nombre == $nombre){
+                $u = serialize($u);
+                $_SESSION["investigador.login"] = $u;
+                header("Location: ../View/index.php");
+                exit;
+            }else{
+                $_SESSION["investigador.login"] = null;
+                header("Location: ../View/login.php?msj= nombre incorrecto");
+                exit;
+            }
+        }
+        catch(Exception $error){
+            if(strstr($error->getMessage(), $id)){
+                $msj = "El investigador con ID: $id no existe";
+            } else{
+                $msj = "Error al iniciar sesion";
+            }
+            $_SESSION["investigador.find"] = null;
+            header("Location: ../View/login.php?msj=$msj");
+            exit;
         }
     }
 }

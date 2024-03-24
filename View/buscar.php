@@ -1,4 +1,6 @@
 <?php
+require_once "../View/validar_sesion.php";
+require_once $_SERVER["DOCUMENT_ROOT"]."procesoeducativo/Models/Entities/Investigador.php";
 // Obtenemos el mensaje enviado por el controlador
 session_start();
 

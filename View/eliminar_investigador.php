@@ -1,7 +1,7 @@
 <?php
 require_once $_SERVER["DOCUMENT_ROOT"]."procesoeducativo/Models/Entities/Investigador.php";
 
-$id_Investigador = "12345678";
+$id = "334566";
 
 try{
 
@@ -14,7 +14,7 @@ try{
     foreach($lista_objetos_investigadores as $i => $u){
     echo "INVESTIGADOR #" . ($i+1) . "<br>";
     echo "--------------------<br>";
-    echo "<b>IDENTIFICACION:</b> $u->id_Investigador<br>";
+    echo "<b>IDENTIFICACION:</b> $u->id<br>";
     echo "<b>NOMBRE:</b> $u->nombre<br>";
     echo "<b>APELLIDO:</b> $u->apellido<br>";
     echo "<b>TELEFONO:</b> $u->telefono<br>";
@@ -33,7 +33,7 @@ try{
     foreach($lista_objetos_investigadores as $i => $u){
         echo "INVESTIGADOR #" . ($i+1) . "<br>";
         echo "--------------------<br>";
-        echo "<b>IDENTIFICACION:</b> $u->id_Investigador<br>";
+        echo "<b>IDENTIFICACION:</b> $u->id<br>";
         echo "<b>NOMBRE:</b> $u->nombre<br>";
         echo "<b>APELLIDO:</b> $u->apellido<br>";
         echo "<b>TELEFONO:</b> $u->telefono<br>";

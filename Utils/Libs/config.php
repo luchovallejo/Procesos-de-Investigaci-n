@@ -5,7 +5,7 @@ ActiveRecord\Config::initialize(function($cfg)
    $cfg->set_model_directory($_SERVER["DOCUMENT_ROOT"]."procesoeducativo/Models/Entities");
    $cfg->set_connections(
      array(
-       'development' => 'mysql://root:root@localhost/investigacioneducativa',
+       'development' => 'mysql://root:root@localhost/educacion',
        //'test' => 'mysql://username:password@localhost/test_database_name',
        //'production' => 'mysql://username:password@localhost/production_database_name'
      )

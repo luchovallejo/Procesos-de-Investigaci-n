@@ -3,7 +3,7 @@ require_once $_SERVER["DOCUMENT_ROOT"]."procesoeducativo/Models/Entities/Investi
 require_once $_SERVER["DOCUMENT_ROOT"]."procesoeducativo/Models/Entities/GrupoInvestigacion.php";
 
 $u = new Investigador();
-$u->id_Investigador = 98746327;
+$u->id = 98746327;
 $u->nombre = "Pedro";
 $u->apellido = "Martinez";
 $u->telefono = 83728462;

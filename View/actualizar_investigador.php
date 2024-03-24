@@ -1,13 +1,13 @@
 <?php
 require_once $_SERVER["DOCUMENT_ROOT"]."procesoeducativo/Models/Entities/Investigador.php";
 
-$id_Investigador = "12345678";
+$id = "334566";
 
 try{
-    $u = Investigador::find($id_Investigador);
+    $u = Investigador::find($id);
     echo "DATOS ACTUALES DEL INVESTIGADOR<br>";
     echo "--------------------<br>";
-    echo "<b>IDENTIFICACION:</b> $u->id_Investigador<br>";
+    echo "<b>IDENTIFICACION:</b> $u->id<br>";
     echo "<b>NOMBRE:</b> $u->nombre<br>";
     echo "<b>APELLIDO:</b> $u->apellido<br>";
     echo "<b>TELEFONO:</b> $u->telefono<br>";
@@ -16,7 +16,7 @@ try{
     
     echo "SE CAMBIA ID, NOMBRE, APELLIDO...<br>";
 
-    $u->id_Investigador = "737828263";
+    $u->id = "737828263";
     $u->nombre = "Camilia";
     $u->apellido = "Cruz";
     $u->telefono = "321456732";
@@ -26,7 +26,7 @@ try{
 
     echo "DATOS ACTUAlIZADOS DEL INVESTIGADOR<br>";
     echo "--------------------<br>";
-    echo "<b>IDENTIFICACION:</b> $u->id_Investigador<br>";
+    echo "<b>IDENTIFICACION:</b> $u->id<br>";
     echo "<b>NOMBRE:</b> $u->nombre<br>";
     echo "<b>APELLIDO:</b> $u->apellido<br>";
     echo "<b>TELEFONO:</b> $u->telefono<br>";

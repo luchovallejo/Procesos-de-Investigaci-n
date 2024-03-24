@@ -1,22 +1,30 @@
 <?php
-require_once "../View/validar_sesion.php";
-// Obtenemos el mensaje enviado por el controlador
 $msj = @$_REQUEST["msj"];
+$u = @$_SESSION["investigador.find"];
+$u = @unserialize($u);
+if($u){
+    header("Location: index.php");
+    exit;
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>EJEMPLO CRUD PHP ORM</title>
+    <link rel="stylesheet" href="../View/css/estilos.css"></link>
 </head>
 
 <body>
     <center>
-        <h1>AGREGUE INFORMACION DE INVESTIGADOR</i>
+        <h1>BUSCAR INVESTIGADOR</i>
         <hr>
         <!-- EL FORMULARIO HTML -->
-        <from action= "../Controllers/InvestigadorController.php" method="POST">
+        <from action= "../../Controllers/InvestigadorController.php" method="POST">
+            <fieldset style="width: 60%;"></fieldset>
+            <legend>DATOS DE ACCESO:</legend>
             <table>
                 <tr>
                     <th style="text-align: right">ID:</th>
@@ -26,21 +34,9 @@ $msj = @$_REQUEST["msj"];
                     <th style="text-align: right">NOMBRE:</th>
                     <td><input type="text" id="nombre" name="nombre" required placeholder="Digita nombre"></td>
                 </tr>
-                <tr>
-                    <th style="text-align: right">APELLIDO:</th>
-                    <td><input type="text" id="apellido" name="apellido" required placeholder="Digita apellido"></td>
-                </tr>
-                <tr>
-                    <th style="text-align: right">TELEFONO:</th>
-                    <td><input type="number" id="tlf" name="tlf" required placeholder="Digita numero telefonico"></td>
-                </tr>
-                <tr>
-                    <td>&nbsp</td>
-                </tr>
-                <tr>
                     <td colspan="2" style="text-align: right">
                     <input type="reset" id="limpiar" value="Limpiar">&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="submit" id="accion" name="accion" value="Guardar">
+                    <input type="submit" id="accion" name="accion" value="Login">
                     </td>
                 </tr>
             </table>
@@ -49,4 +45,3 @@ $msj = @$_REQUEST["msj"];
     </center>
 </body>
 </html>
-

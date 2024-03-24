@@ -2,6 +2,7 @@
 // Obtenemos el mensaje enviado por el controlador
 session_start();
 require_once $_SERVER["DOCUMENT_ROOT"]."procesoeducativo/Models/Entities/Investigador.php";
+require_once "../View/validar_sesion.php";
 
 $msj = @$_REQUEST["msj"];
 $investigadores = @$_SESSION["investigadores.all"];
@@ -45,7 +46,7 @@ $investigadores = unserialize($investigadores);
             ?>    
                 <tr style="text-align: left;">
                 <td> <?= ($i + 1) ?> </td>
-                <td> <?= $u-> id_investigador ?> </td>
+                <td> <?= $u-> id ?> </td>
                 <td> <?= $u-> nombre ?> </td>            
                 </tr>
             <?php    
