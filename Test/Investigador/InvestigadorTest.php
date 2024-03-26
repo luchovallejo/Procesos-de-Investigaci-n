@@ -3,10 +3,10 @@ require_once $_SERVER["DOCUMENT_ROOT"]."procesoeducativo/Models/Entities/Investi
 require_once $_SERVER["DOCUMENT_ROOT"]."procesoeducativo/Models/Entities/GrupoInvestigacion.php";
 
 $u = new Investigador();
-$u->id = 334566;
-$u->nombre = "Jose";
-$u->apellido = "Fernando";
-$u->telefono = 321456372;
+$u->id = 29262836;
+$u->nombre = "Luz Elena";
+$u->apellido = "Montes";
+$u->telefono = 637252735;
 
 
 /*$u->save();
@@ -16,7 +16,7 @@ echo "total: $total Investigadores";*/
 try{
     $u->save();
     $total = @Investigador::count();
-    echo "investigadores guardados";
+    echo "investigadores guardados ";
     echo "total: $total Investigadores";
 }
 catch(Exception $error){

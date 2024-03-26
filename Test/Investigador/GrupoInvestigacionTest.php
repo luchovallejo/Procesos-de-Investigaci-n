@@ -3,8 +3,8 @@ require_once $_SERVER["DOCUMENT_ROOT"]."procesoeducativo/Models/Entities/Investi
 require_once $_SERVER["DOCUMENT_ROOT"]."procesoeducativo/Models/Entities/GrupoInvestigacion.php";
 
 $u = new GrupoInvestigacion();
-$u->idlider = 45362527;
-$u->nombreproyecto = "Nivel educativo por grado";
+$u->idlider = 64625372;
+$u->nombreproyecto = "Analisis calificativos";
 $u->investigadorid = 678863637;
 
 
