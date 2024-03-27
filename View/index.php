@@ -1,5 +1,4 @@
 <?php
-require_once "../View/validar_sesion.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">

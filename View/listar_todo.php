@@ -2,7 +2,7 @@
 // Obtenemos el mensaje enviado por el controlador
 session_start();
 require_once $_SERVER["DOCUMENT_ROOT"]."procesoeducativo/Models/Entities/Investigador.php";
-require_once "../View/validar_sesion.php";
+
 
 $msj = @$_REQUEST["msj"];
 $investigadores = @$_SESSION["investigadores.all"];
@@ -15,7 +15,8 @@ $investigadores = unserialize($investigadores);
 <head>
     <meta charset="UTF-8">
     <title>EJEMPLO CRUD PHP ORM</title>
-    <script src="../View/js/validaciones.js"></script>
+    <script src="procesoeducativo/View/js/validaciones.js"></script>
+    <link rel="stylesheet" href="procesoeducativo/View/css/estilos.css"></link>
 </head>
 
 <body>

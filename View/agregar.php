@@ -1,5 +1,4 @@
 <?php
-require_once "../View/validar_sesion.php";
 // Obtenemos el mensaje enviado por el controlador
 $msj = @$_REQUEST["msj"];
 ?>
@@ -16,7 +15,7 @@ $msj = @$_REQUEST["msj"];
         <h1>AGREGUE INFORMACION DE INVESTIGADOR</i>
         <hr>
         <!-- EL FORMULARIO HTML -->
-        <from action= "../Controllers/InvestigadorController.php" method="POST">
+        <from action= "procesoeducativo/Controllers/InvestigadorController.php" method="POST">
             <table>
                 <tr>
                     <th style="text-align: right">ID:</th>

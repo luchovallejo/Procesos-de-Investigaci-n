@@ -14,7 +14,7 @@ if($u){
 <head>
     <meta charset="UTF-8">
     <title>EJEMPLO CRUD PHP ORM</title>
-    <link rel="stylesheet" href="../View/css/estilos.css"></link>
+    <link rel="stylesheet" href="procesoeducativo/View/css/estilos.css"></link>
 </head>
 
 <body>

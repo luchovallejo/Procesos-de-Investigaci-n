@@ -51,7 +51,7 @@ class InvestigadorController{
             $u->save();
             $total = @Investigador::count();
             $msj = "Investigador guardado, Total: $total";
-            header("Location: ../View/agregar.php?msj=$msj");
+            header("Location: procesoeducativo/View/agregar.php?msj=$msj");
         exit;
         }
         catch(Exception $error){
@@ -169,7 +169,7 @@ class InvestigadorController{
         try {
             $investigadores = Investigador::all();
             if($investigadores == null){
-                $_SESSION["investigadores.all"];
+                $_SESSION["investigadores.all"] = NULL;
                 $msj = "Total investigadores: 0";
             }else{
                 $total = count($investigadores);
@@ -180,7 +180,7 @@ class InvestigadorController{
             header("Location: ../View/listar_todo.php?msj=$msj");
         }catch(Exception $error){
             $_SESSION["investigadores.all"] = null;
-            header("Location ../View/listar_todo.php?msj=Total investigadores: 0");
+            header("Location procesoeducativo/View/listar_todo.php?msj=Total investigadores: 0");
         }
     }
 

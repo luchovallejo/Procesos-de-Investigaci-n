@@ -1,6 +1,4 @@
 <?php
-require_once "../View/validar_sesion.php";
-require_once $_SERVER["DOCUMENT_ROOT"]."procesoeducativo/Models/Entities/Investigador.php";
 // Obtenemos el mensaje enviado por el controlador
 session_start();
 
@@ -17,7 +15,7 @@ $u = unserialize($u);
 <head>
     <meta charset="UTF-8">
     <title>EJEMPLO CRUD PHP ORM</title>
-    <script src="../View/js/validaciones.js"></script>
+    <script src="procesoeducativo/View/js/validaciones.js"></script>
 </head>
 
 <body>
@@ -25,7 +23,7 @@ $u = unserialize($u);
         <h1>BUSCAR INVESTIGADOR</i>
         <hr>
         <!-- EL FORMULARIO HTML -->
-        <from action= "../Controllers/InvestigadorController.php" method="POST">
+        <from action= "procesoeducativo/Controllers/InvestigadorController.php" method="POST">
             <table>
                 <tr>
                     <th style="text-align: right">ID:</th>

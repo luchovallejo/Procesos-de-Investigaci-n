@@ -10,7 +10,7 @@ try{
     echo "<b>APELLIDO:</b> $u->apellido<br>";
     echo "<b>TELEFONO:</b> $u->telefono<br>";
 
-    $GrupoInvestigacion = $g->$GrupoInvestigacion;
+    $GrupoInvestigacion = $u->GrupoInvestigacion;
     $numeroproyectos = count($GrupoInvestigacion);
     echo "<br>";
     echo "Proyectos: $numeroproyectos<br>";
@@ -20,7 +20,7 @@ try{
         echo "Proyectos #".($i + 1)."<br>";
         echo "--------------------<br>";
         echo "<b>Identificacion lider del proyecto: </b>$g->idlider<br>";
-        echo "<b>Nombre del proyecto: </b>$g->nombre_proyecto<br>";
+        echo "<b>Nombre del proyecto: </b>$g->nombreproyecto<br>";
         echo "<b>ID investigador: </b>$g->investigadorid<br>";
         $nombre_de_proyectos += $g->nombreproyecto;
     }

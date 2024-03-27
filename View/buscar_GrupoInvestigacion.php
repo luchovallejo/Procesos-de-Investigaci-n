@@ -5,7 +5,7 @@ require_once $_SERVER["DOCUMENT_ROOT"]."procesoeducativo/Models/Entities/GrupoIn
 $idlider = 1;
 
 try{
-    $g = GrupoInvestigacion::find($idlider);
+    $u = GrupoInvestigacion::find($idlider);
     echo "<b>Identificacion lider del proyecto: </b>$g->idlider<br>";
     echo "<b>Nombre del proyecto: </b>$g->nombreproyecto<br>";
     echo "<b>ID investigador: </b>$g->investigadorid<br>";
