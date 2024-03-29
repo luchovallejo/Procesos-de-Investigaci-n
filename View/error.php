@@ -11,7 +11,7 @@ $msj = @$_REQUEST["msj"];
 </head>
 <body>
     <center>
-    <h1>AGREGUE INFORMACION DE INVESTIGADOR</i>
+    <h1>Mensaje de error</i>
         <hr>
         <!-- SE MUESTRA MENSAJE ENVIADO POR EL CONTROLADOR -->
         <span style= " color: #900D40; background-color: #FAD7CE;">

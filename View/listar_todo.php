@@ -15,7 +15,6 @@ $investigadores = unserialize($investigadores);
 <head>
     <meta charset="UTF-8">
     <title>EJEMPLO CRUD PHP ORM</title>
-    <script src="procesoeducativo/View/js/validaciones.js"></script>
     <link rel="stylesheet" href="procesoeducativo/View/css/estilos.css"></link>
 </head>
 

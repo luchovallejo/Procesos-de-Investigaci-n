@@ -42,16 +42,16 @@ class InvestigadorController{
 
         $u = new Investigador();
 
-        $id = $id;
-        $nombre = $nombre;
-        $apellido = $apellido;
-        $telefono = $telefono;
+        $u->id = $id;
+        $u->nombre = $nombre;
+        $u->apellido = $apellido;
+        $u->telefono = $telefono;
 
         try{
             $u->save();
             $total = @Investigador::count();
             $msj = "Investigador guardado, Total: $total";
-            header("Location: procesoeducativo/View/agregar.php?msj=$msj");
+            header("Location: ../View/agregar.php?msj=$msj");
         exit;
         }
         catch(Exception $error){
